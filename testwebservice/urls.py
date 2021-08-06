@@ -18,12 +18,12 @@ from django.urls import path
 from django.urls import include
 from rest_framework import routers
 from customer.views import Top5ViewSet
-from deal.views import ImportLogVewSet
+from deal.views import ImportLogViewSet
 
 
 router = routers.DefaultRouter()
 router.register(r'get', Top5ViewSet)
-router.register(r'post', ImportLogVewSet)
+router.register(r'post', ImportLogViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
