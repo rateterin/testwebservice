@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from rest_framework.viewsets import ModelViewSet
+from .models import ImportLog, Deal
+from .serializers import ImportLogSerializer
 
-# Create your views here.
+
+class ImportLogViewSet(ModelViewSet):
+    queryset = ImportLog.objects.all()
+    serializer_class = ImportLogSerializer
