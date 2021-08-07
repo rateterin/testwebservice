@@ -65,6 +65,10 @@ def processing_import_file_into_deal(sender, instance, **kwargs):
                             item_f, total_f, quantity_f, date_f
                         row.save()
 
+                        customer_row = Customer.objects.get(pk=customer_f)
+                        customer_row.spent_money += int(total_f)
+                        customer_row.save()
+
     os.remove(os.path.join(MEDIA_ROOT, str(instance.file)))
     if error:
         instance.err = error

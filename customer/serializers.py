@@ -5,4 +5,4 @@ from .models import Top5
 class Top5Serializer(HyperlinkedModelSerializer):
     class Meta:
         model = Top5
-        fields = '__all__'
+        fields = ('username', 'spent_money', 'gems')

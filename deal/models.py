@@ -14,3 +14,6 @@ class ImportLog(models.Model):
     file = models.FileField(upload_to='deals')
     date = models.DateTimeField(auto_now=True)
     success = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ('-date',)
