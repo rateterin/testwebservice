@@ -1,6 +1,5 @@
-from django.shortcuts import render
 from rest_framework.viewsets import ReadOnlyModelViewSet
-from .models import Top5, Customer
+from .models import Top5
 from .serializers import Top5Serializer
 
 
