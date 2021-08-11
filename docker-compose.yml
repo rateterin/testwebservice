@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  testwebservice_db:
+    image: postgres:latest
+    restart: always
+    env_file:
+      - ./.env
+  testwebservice:
+    image: python:latest
+    depends_on:
+      - testwebservice_db
+    restart: always
+    env_file:
+      - ./.env
+    volumes:
+      - ./:/var/www/testwebservice/html/
+    entrypoint: /var/www/testwebservice/html/entrypoint.sh
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www/testwebservice/html/
+      - ./nginx:/etc/nginx/conf.d/
+    depends_on:
+      - testwebservice
+    restart: always
+      
